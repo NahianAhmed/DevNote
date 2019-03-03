@@ -1,0 +1,33 @@
+Make Project: >>composer create-project laravel/laravel ProjectName
+Start Project -- Enter Project Folder --->>php artisan serve
+1st goto -- route ..->web.php file that is route 
+For controller go to ->app ->http there will be controller 
+Make a controller --> >>php artisan make:contoller ControllerName
+--->in controller class you can make function to return view 
+
+DataBase :
+connect the database in ->env file in project.
+then make a model >>php artisan make:model ModelName;
+then migrate >>php artisan migrate
+-------- you will see some table.
+own table >> php artisan make:migration TableName --create=TableName
+--this will make a migration and then you have to migrate again. 
+
+blade mastering :
+1. master have header , footer between then their is @yield('contain')
+**** follow abcd foundation master.master.blade.php
+2. child bande template will @externs('master') and add @section('cointain') <design> @end of it's own.
+
+----->NOTE ->once you have a post request error(Method not found Exception while refreshing The page ) and your should redirect the post to a get request page!  >>>>>>Problem Sholve<<<<<<
+  
+
+table not exit:::: Problem
+define each table name in model
+
+
+
+
+
+
+
+

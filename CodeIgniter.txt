@@ -1,0 +1,55 @@
+1.loading system:
+index.php->application(folder)->config(folder)->execute all(file)-> there is->route.php->
+route load->go to controller -> view/model 
+2. Use define BasePath
+
+//AutoLoad
+
+3. autoload customization known as codeIgniterr install ....
+    ----- mainly use library , class , healper ,session etc
+
+4. In autoload library array use database and  session 
+5. In autoload halper array use url and  file
+6. In autoload config array use config  
+
+//Config
+
+7.use base url(project root)
+8.remove index.php from $config['index_page']
+9. you can use $config['url_suffix'] = ''; any name
+
+//database
+10. In database.php use database setup
+//Controller 
+11. Make one then use in route
+12. Make the route clean with good route name and also remove the 
+index.php file from .htaccess
+13. Session 
+   as array ->
+      $data=array();
+      $data['msg']="Hello";
+  make session as $this->session->set_userdata($data)
+14.use session in controller constructor
+         as
+                public function __construct(){
+		parent::__construct();
+		if($this->session->userdata('name')==null){
+           redirect('/Admin');
+		}
+
+	}
+
+
+15.get data from post request as
+         $user_name=$this->input->post('name',true);
+16.Template mastering as - check ciapp project
+17.Validation through loading form_validation. it sent flash data fine 
+   to view but not redirect to view so use session_flashdata as in ci_app
+18. for email follow ci_app  
+
+
+
+
+
+
+
