@@ -2,6 +2,7 @@ Install npm and install -> npm install express-generator -g.
 project creation -> express AppName.
 setup     ->cd AppName 
           ->npm install.
+          ->then npm start.
        
 check the project structure 
          -> in bin/www is server
@@ -11,4 +12,18 @@ check the project structure
          -> in app.js you will see router exporting in it and given a url.
          -> those exporting files are actually controller 
 template Engine set up
-         ->
+         -> unintall jade : npm uninstall jade --save 
+         -> install handlebars :  npm install express-handlebars
+         then follow this :
+         var hbs = require('express-handlebars'); // export hbs
+         // view engine setup
+          app.engine('hbs',hbs({extname:'hbs',defaultLayout:'layout', layoutsDir:__dirname + '/views/'}));
+          app.set('views', path.join(__dirname, 'views'));
+          app.set('view engine', 'hbs');
+          
+         done now make your own view and route 
+ 
+NodeMon : use nodemon for dynamic routering 
+         -> setup : npm install nodemon
+         -> start : nodemon start
+
