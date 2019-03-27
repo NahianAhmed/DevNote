@@ -1,4 +1,14 @@
 Install npm and install -> npm install express-generator -g.
 project creation -> express AppName.
-setup -> cd AppName 
-       ->npm install.
+setup     ->cd AppName 
+          ->npm install.
+       
+check the project structure 
+         -> in bin/www is server
+         -> route has router in it
+         -> view has all template (use handlebar template)
+         -> then app.js the main file.
+         -> in app.js you will see router exporting in it and given a url.
+         -> those exporting files are actually controller 
+template Engine set up
+         ->
