@@ -46,6 +46,7 @@ index.php file from .htaccess
 17.Validation through loading form_validation. it sent flash data fine 
    to view but not redirect to view so use session_flashdata as in ci_app
 18. for email follow ci_app  
+19 . for image upload check https://github.com/NahianAhmed/CodeIgniter_image_upload
 
 
 
