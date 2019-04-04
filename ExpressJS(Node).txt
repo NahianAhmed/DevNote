@@ -27,3 +27,8 @@ NodeMon : use nodemon for dynamic routering
          -> setup : npm install nodemon
          -> start : nodemon start
 
+
+
+
+mail :
+       https://www.w3schools.com/nodejs/nodejs_email.asp
