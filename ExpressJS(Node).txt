@@ -32,3 +32,5 @@ NodeMon : use nodemon for dynamic routering
 
 mail :
        https://www.w3schools.com/nodejs/nodejs_email.asp
+file upload: 
+      https://www.npmjs.com/package/express-fileupload
