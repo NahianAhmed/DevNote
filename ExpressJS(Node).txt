@@ -27,7 +27,85 @@ NodeMon : use nodemon for dynamic routering
          -> setup : npm install nodemon
          -> start : nodemon start
 
+**** Route setup *****
+ import route link in app.js
+ give it a name in app.js
+ then make your route in file linked in route folder
 
+*** get request ******
+router.get('/Get-Request/:id',function(req,res,next){
+
+    res.render('pages/getrequest',{val:req.params.id});
+});
+
+**** post requset *****
+router.post('/post-request',function(req,res,next){
+   let id = req.body.id;
+   res.redirect('/Get-Request/'+id);
+});
+
+
+*** npm install --save express-validator***
+ setup :  var ExpressValidator = require('express-validator');
+          app.use(ExpressValidator());
+ 
+  use :*****
+        req.check('name',"Name must be 5 to 20 Char").isLength({min:5,max:20});
+        req.check('email','Invalid Email').isEmail();
+        req.check('password','Passowrd Donot Match').equals(req.body.confirm_password);
+      
+      let errors = req.validationErrors();
+      if(errors){
+       //console.log(errors);
+         req.session.error=errors;
+         res.redirect('/form-validation');
+         console.log(req.session);
+       }
+ 
+
+*** npm install --save express-session ***
+ setup :  var ExpressSession = require('express-session');
+          app.use(ExpressSession({secret:'max',saveUninitialized:false,resave:false}));
+
+ use :  req.session.error=errors;
+
+*** flash data : 
+ setup :    npm install connect-flash --save
+            var flash = require('connect-flash');
+            app.use(flash());
+
+ use :
+       req.flash('error', errors); 
+
+mongodb : mongoose *** setup ->
+   npm install --save mongoose
+   var mongoose = require('mongoose');
+   mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true});
+   
+mongoose Schema :
+   var Schema = mongoose.Schema;
+
+   var DataSchema = new Schema({
+    name: String,
+    email : String,
+    password : String,
+
+     }); 
+mongoose model :
+    var UserData = mongoose.model('User_tbl',DataSchema);
+insert data : *** 
+    let data ={
+            name: req.body.name1,
+            email: req.body.email,
+            password:req.body.password
+        }
+        
+        var tbl_data = new UserData(data);
+        tbl_data.save().then(function(){
+               console.log("data insert");
+        }).catch(function(err){
+            console.log(err);
+        });
 
 
 mail :
