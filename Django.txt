@@ -1,0 +1,65 @@
+-->Creating a project
+  cmd->$ django-admin startproject mysite
+
+-->The development server
+  cmd->$ python manage.py runserver
+
+--Creating the Polls app
+  cmd->$ python manage.py startapp polls
+  Register your app in setting.py 
+  also place in main url in project's app
+  
+-->Template :
+ make a folder name "templates" in root 
+ place your global template there.
+  -- make local templates folder in indivisul app with a new folder
+
+-->Static file : image / css
+  add a folder in root name as public
+   *** in main urls add
+              
+	from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+           urlpatterns = [
+              path('', views.home),
+              path('user', include('UserDashbord.urls')),
+              ]
+           urlpatterns+=staticfiles_urlpatterns()
+
+  *** in setting.py 
+         STATICFILES_DIRS=(
+         os.path.join(BASE_DIR,'public'),
+            )
+
+ *** load this in master template 
+       {% load static from staticfiles %}
+
+--> get and post request:
+    ****def index(request):
+    if request.method=='POST':
+        arr={}
+        arr["name"] = request.POST['name']
+        arr["mobile"] = request.POST['mobile']
+        arr["email"] = request.POST['email']
+        json_data=json.dumps(arr)
+        return HttpResponse(json_data)
+    else:
+        return render(request,'curd/index.html')
+       
+ --->model
+      ***
+    class curd(models.Model):
+    name = models.CharField(max_length=120)
+    mobile = models.CharField(max_length=14)
+    email = models.CharField(max_length=120)
+    date=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name,self.mobile,self.email
+
+Session :
+
+  1. request.session['name']="name"
+  2.name = request.session['name']
+ 3. in template request.session.name
+ 4 . flush request.session.flash()
+  
